@@ -40,7 +40,7 @@ public class Main extends Application {
         rootViewController.setMain (this);
 
         rootViewController.loadPerson();
-        primaryStage.setTitle ("Programik");
+        primaryStage.setTitle ("Address Book");
         primaryStage.setScene (new Scene (root,600,400));
         primaryStage.show ();
         System.out.println (personList);

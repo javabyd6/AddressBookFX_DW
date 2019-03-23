@@ -94,12 +94,18 @@
                   <DropShadow />
                </effect>
             </Button>
-            <Button fx:id="Cancel" onAction="#closeButtonAction" minHeight="30.0" minWidth="100.0" mnemonicParsing="false" text="Cancel">
+            <Button fx:id="Cancel" minHeight="30.0" minWidth="100.0" mnemonicParsing="false" onAction="#closeButtonAction" text="Cancel">
                <effect>
                   <DropShadow />
                </effect>
             </Button>
          </buttons>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <VBox.margin>
+            <Insets right="70.0" top="20.0" />
+         </VBox.margin>
       </ButtonBar>
    </children>
 </VBox>

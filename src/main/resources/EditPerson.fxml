@@ -89,17 +89,20 @@
       </GridPane>
       <ButtonBar>
          <buttons>
-            <Button fx:id="Save" minHeight="30.0" minWidth="100.0" mnemonicParsing="false"  text="Save">
+            <Button fx:id="Save" minHeight="30.0" minWidth="100.0" mnemonicParsing="false" onAction="#save" text="Save">
                <effect>
                   <DropShadow />
                </effect>
             </Button>
-            <Button fx:id="Cancel"  minHeight="30.0" minWidth="100.0" mnemonicParsing="false" text="Cancel">
+            <Button fx:id="Cancel" minHeight="30.0" minWidth="100.0" mnemonicParsing="false" onAction="#closeButtonAction" text="Cancel">
                <effect>
                   <DropShadow />
                </effect>
             </Button>
          </buttons>
+         <padding>
+            <Insets right="70.0" top="20.0" />
+         </padding>
       </ButtonBar>
    </children>
 </VBox>

@@ -62,15 +62,13 @@ public class RootViewController implements Initializable {
         this.main = main;
     }
 
-    private int IndexReadTable;
+
 
     public int getIndexReadTable() {
         return personTableView.getSelectionModel ().getFocusedIndex ();
     }
 
-    public void setIndexReadTable(int indexReadTable) {
-        IndexReadTable = indexReadTable;
-    }
+
 
 
     @Override
@@ -118,17 +116,24 @@ public class RootViewController implements Initializable {
     }
 
     public void EditPersonScene() throws IOException {
-
+        Person person = personTableView.getSelectionModel ().getSelectedItem ();
         Stage editPersonStage = new Stage ();
         FXMLLoader fxmlLoader = new FXMLLoader ();
         fxmlLoader.setLocation (getClass ().getResource ("/EditPerson.fxml"));
         fxmlLoader.load ();
+
         Parent root = fxmlLoader.getRoot ();
         editPersonStage.setScene (new Scene (root,600,400));
         editPersonStage.show ();
+
         EditPersonViewController editPersonViewController= fxmlLoader.getController ();  // Przekazywanie meina do controlera
         editPersonViewController.setMain(this.getMain ());
         editPersonViewController.setIndexReadTable (getIndexReadTable ());
+        editPersonViewController.showPerson (person);
+    }
+
+    public void delete(){
+        getMain ().getPersonList ().remove (getIndexReadTable ());
     }
 
 

@@ -1,9 +1,11 @@
 package pl.sda.addresBook.controller;
 
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 import pl.sda.addresBook.Main;
 import pl.sda.addresBook.model.Person;
 
@@ -24,8 +26,9 @@ public class EditPersonViewController implements Initializable {
     }
 
     private int IndexReadTable;
+
     public void setIndexReadTable(int indexReadTable) {
-        IndexReadTable = indexReadTable;
+        this.IndexReadTable = indexReadTable;
     }
 
     public int getIndexReadTable() {
@@ -52,7 +55,33 @@ public class EditPersonViewController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
-        System.out.println (getIndexReadTable ());
 
+    }
+
+    public void save(){
+        getMain ().getPersonList ().get (getIndexReadTable ()).setName (NameIn.getText ());
+        getMain ().getPersonList ().get (getIndexReadTable ()).setLastName (LastNameIn.getText ());
+        getMain ().getPersonList ().get (getIndexReadTable ()).setAddress (AddressIn.getText ());
+        getMain ().getPersonList ().get (getIndexReadTable ()).setPostalCode (PostCodeIn.getText ());
+        getMain ().getPersonList ().get (getIndexReadTable ()).setTelephone (TelephoneIn.getText ());
+        getMain ().getPersonList ().get (getIndexReadTable ()).setCity (CityIn.getText ());
+        closeButtonAction ();
+
+    }
+    public void showPerson(Person person){
+        NameIn.setText (person.getName ());
+        LastNameIn.setText (person.getLastName ());
+        AddressIn.setText (person.getAddress ());
+        PostCodeIn.setText (person.getPostalCode ());
+        TelephoneIn.setText (person.getTelephone ());
+        CityIn.setText (person.getCity ());
+    }
+
+    @FXML
+    private void closeButtonAction() {
+        // get a handle to the stage
+        Stage stage = (Stage) Cancel.getScene ().getWindow ();
+        // do what you have to do
+        stage.close ();
     }
 }
